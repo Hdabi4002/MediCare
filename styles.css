@@ -316,7 +316,7 @@ footer {
   }
 
   .disease-card img {
-    max-width: 100%;
+    max-width: 120px;
   }
 
   .disease-card-content {
@@ -374,8 +374,8 @@ footer {
     padding: 1rem;
   }
 
-  .disease-card img {
-    max-width: 100%;
+ .disease-card img {
+    max-width: 100px;
   }
 
   section {
@@ -450,3 +450,19 @@ footer {
     padding: 0.5rem 1rem;
   }
 }
+
+@media (max-width: 480px) {
+
+  .disease-card img {
+    max-width: 80px;
+    height: auto;
+    margin: 0 auto 10px auto;
+    display: block;
+  }
+
+  .disease-card {
+    padding: 0.5rem;
+    gap: 10px;
+  }
+}
+
