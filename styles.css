@@ -1,12 +1,13 @@
+/* ===========================================
+   GLOBAL RESET
+=========================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -15,41 +16,35 @@ body {
   background-color:#F5F5DC;
 }
 
-.hidden { display: none; }
-    .plus-button {
-      padding: 10px;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      margin: 10px 0;
-    }
-    .content-section {
-      margin-top: 20px;
-      border: 1px solid #ccc;
-      padding: 20px;
-    }
+.hidden { display: none !important; }
 
+/* ===========================================
+   NAVIGATION
+=========================================== */
 nav {
-  background-color:  #1d3b01;
+  background-color: #1d3b01;
   padding: 0.6rem 1rem;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 9999;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-/* Hide toggle icon by default */
 .menu-toggle {
   display: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  font-size: 2rem;
+  color: #EADDCA;
+  cursor: pointer;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
   gap: 2.5rem;
 }
 
@@ -58,15 +53,15 @@ nav ul li a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-  color: #e2c400;
-}
+nav ul li a:hover { color: #e2c400; }
 
+/* ===========================================
+   HEADER / HERO
+=========================================== */
 header {
-  background: url('bgleafy.jpg') no-repeat center center/cover;
+  background: url('bgleafy.jpg') no-repeat center/cover;
   height: 100vh;
   color: #fff;
   text-align: center;
@@ -79,19 +74,14 @@ header {
 header::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 0;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
 }
 
 header h1 {
   z-index: 1;
   font-size: 4.5rem;
   animation: fadeInDown 1.5s ease;
-  font-family: 'Roboto', sans-serif;
 }
 
 header p {
@@ -102,24 +92,11 @@ header p {
   font-style: italic;
 }
 
+/* ===========================================
+   SECTIONS, CARDS
+=========================================== */
 section {
   padding: 5rem 2rem;
-  background-color: #F5F5F5;
-}
-
-.parallax {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  color: #1d3b01;
-}
-
-.parallax-1 {
-  background-color: #B1AB86;
-}
-
-.parallax-2 {
-  background-color: #B1AB86;
 }
 
 .card {
@@ -127,667 +104,250 @@ section {
   padding: 2rem;
   margin: 1.5rem auto;
   max-width: 1000px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-  border-left: 6px solid  #1d3b01;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-/* === Disease & Symptoms Section === */
-.disease-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 10px 0;
-}
-
-.disease-card {
-  display: flex;
-  flex-direction: row;
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 6px #EADDCA;
-  transition: transform 0.3s ease;
-  align-items: flex-start;
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.disease-card:hover {
-  transform: scale(1.02);
-}
-
-.disease-img {
-  width: 100%;
-  height: 100px; /* Set your desired height */
-  object-fit: cover;
-}
-
-.disease-card img {
-  max-width: 200px;
-  height: auto;
-  border-radius: 10px;
-  flex-shrink: 0;
-  object-fit: contain; /* Ensures full image is visible inside the box */
-}
-
-.disease-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.disease-card-content h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #6D4C41;
-}
-
-.disease-card-content p {
-  font-size: 14px;
-  color:#814141;
-  line-height: 1.6;
-}
-
-/* === Testimonials Section === */
-.testimonial {
-  background-color: rgb(64, 119, 65);
-  text-align: center;
-  padding: 4rem 0;
-}
-
-.testimonial h2 {
-  margin-bottom: 3rem;
-  color: #fff;
-  font-size: 2rem;
-}
-
-.testimonial-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  justify-content: center;
-}
-
-.testimonial-box {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1.8rem;
-  max-width: 320px;
-  transition: transform 0.3s ease;
   border-left: 6px solid #1d3b01;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
-.testimonial-box:hover {
-  transform: translateY(-5px);
-}
+.card:hover { transform: scale(1.05); }
 
-.testimonial-box p {
-  font-style: italic;
-  color: #1d3b01;
-}
-
-.testimonial-box h4 {
-  margin-top: 1rem;
-  color: #1d3b01;
-}
-
-/* === Form === */
-form input,
-form textarea,
-form button {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #814141;
-  font-size: 1rem;
-}
-
-form button {
-  background-color: #DAA06D;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #6D4C41;
-}
-
-/* === Doctors === */
-/* Flexbox setup for the doctor section */
+/* ===========================================
+   DOCTOR SECTION
+=========================================== */
 .split_doc {
-  display: flex; /* By default, flex direction will be row (left-right) */
-  gap: 20px; /* Space between image and text */
-  justify-content: center; /* Align content in the center */
-  align-items: center; /* Align items vertically */
-}
-
-/* Image Styling */
-.doctor_img {
-  flex: 1; /* Make image take equal space */
-  text-align: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .doctor_img img {
-  width: 190px; /* Fixed width */
-  height: 190px; /* Fixed height to match width */
-  border-radius: 50%; /* Make it circular */
-  object-fit: cover; /* Ensure image covers the circle area */
-  margin: 0 auto; /* Center the image */
-}
-
-
-/* Text Section Styling */
-.doctor_about {
-  flex: 1; /* Make text section take equal space */
-  text-align: left;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .doctor_about h4 {
-  font-weight: bold; /* Bold for the doctor's name */
   font-size: 1.6rem;
-  color:  #6D4C41;
-  margin-bottom: 10px;
+  color:#6D4C41;
 }
 
 .doctor_about p {
   font-size: 1.1rem;
   color: #814141;
-  line-height: 1.6;
 }
 
-.therapy-img {
-  max-width: 250px;
-  height: auto;
-  display: block;
-  margin: 0 auto 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* ===========================================
+   VIDEO GRID
+=========================================== */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .video-grid iframe {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
+  aspect-ratio: 16/9;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
-
-/* Responsive Design for Small Screens */
-@media (max-width: 1024px) {
-  .split_doc {
-    flex-direction: column; /* Stack the image and text vertically */
-    text-align: center;
-  }
-
-  .doctor_img {
-    margin-bottom: 20px; /* Space between image and text */
-  }
-
-  .doctor_about {
-    text-align: center; /* Center text on small screens */
-  }
+/* ===========================================
+   DISEASE CARD GRID
+=========================================== */
+.disease-card {
+  display: flex;
+  gap: 20px;
+  background:#fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px #EADDCA;
 }
 
-#therapy .card {
-  text-align: center;
+.disease-card img {
+  max-width: 200px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-#therapy h4 {
-  font-size: 1.6rem;
+.disease-card-content h4 {
   color: #6D4C41;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
-#therapy p {
-  font-size: 1rem;
-  color: #814141;
-  line-height: 1.6;
+.disease-card-content p {
+  color:#814141;
 }
 
-/* === Footer === */
-footer {
-  background: #344721;
-  color: #ffffff;
+/* ===========================================
+   TESTIMONIALS
+=========================================== */
+.testimonial {
+  background-color: rgb(64,119,65);
   text-align: center;
-  padding: 3rem;
+  padding: 4rem 0;
 }
 
-/* === Animations === */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.testimonial-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.testimonial-box {
+  background: #fff;
+  max-width: 320px;
+  padding: 1.8rem;
+  border-left: 6px solid #1d3b01;
+  border-radius: 10px;
 }
 
-/* === Responsive Design === */
-
-@media (max-width: 1024px) {
-  header h1 {
-    font-size: 3.5rem;
-  }
-
-  header p {
-    font-size: 1.4rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-
-  .disease-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .disease-card img {
-    max-width: 120px;
-  }
-
-  .disease-card-content {
-    align-items: center;
-  }
-
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    background-color: #1d3b01;
-    position: absolute;
-    width: 100%;
-    top: 64px;
-    left: 0;
-    display: none;
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  nav ul.show {
-    display: flex;
-  }
-
-  nav .menu-toggle {
-    display: block;
-    color: #EADDCA;
-    font-size: 2rem;
-    cursor: pointer;
-    position: absolute;
-    right: 1.5rem;
-    top: 1.2rem;
-  }
-
-  header h1 {
-    font-size: 2.8rem;
-  }
-
-  header p {
-    font-size: 1.2rem;
-  }
-
-  .testimonial-boxes {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .disease-card {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
- .disease-card img {
-    max-width: 100px;
-  }
-
-  section {
-    padding: 3rem 1rem;
-  }
-
-  footer {
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  nav ul li a {
-    font-size: 1rem;
-    padding: 0.5rem 0;
-  }
-
-  .testimonial-box {
-    max-width: 90%;
-  }
-
-  form input,
-  form textarea,
-  form button {
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Show toggle icon */
-  .menu-toggle {
-    display: block;
-    font-size: 2rem;
-    color: #EADDCA;
-    cursor: pointer;
-  }
-
-  /* Hide nav list initially */
-  nav ul {
-    flex-direction: column;
-    background-color: #1d3b01;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
-    display: none;
-    text-align: left;
-  }
-
-  /* Show nav list only when .show is toggled */
-  nav ul.show {
-    display: flex;
-  }
-
-  nav ul li a {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .disease-card img {
-    max-width: 80px;
-    height: auto;
-    margin: 0 auto 10px auto;
-    display: block;
-  }
-
-  .disease-card {
-    padding: 0.5rem;
-    gap: 10px;
-  }
-}
-
-/* === Buy Medicines Grid (Updated) === */
+/* ===========================================
+   MEDICINE GRID (Horizontal Scroll)
+=========================================== */
 .medicine-grid {
   display: flex;
-  flex-wrap: nowrap;               /* No wrap — scroll horizontally */
-  overflow-x: auto;                /* Enables horizontal scrolling */
-  overflow-y: hidden;
+  overflow-x: auto;
   gap: 1.5rem;
-  padding: 1rem 0 2rem;
+  padding-bottom: 2rem;
   scroll-behavior: smooth;
-  justify-content: flex-start;     /* Align items from the left */
 }
 
-/* Scrollbar styling (optional, for aesthetics) */
-.medicine-grid::-webkit-scrollbar {
-  height: 10px;
-}
-.medicine-grid::-webkit-scrollbar-thumb {
-  background-color: #6D4C41;
-  border-radius: 10px;
-}
-.medicine-grid::-webkit-scrollbar-track {
-  background-color: #D9C9A2;
-  border-radius: 10px;
-}
+.medicine-grid::-webkit-scrollbar { height: 10px; }
+.medicine-grid::-webkit-scrollbar-thumb { background: #6D4C41; border-radius: 10px; }
 
 .medicine-item {
-  background: #fff;
+  background:#fff;
+  min-width: 300px;
   padding: 1.2rem;
   border-radius: 12px;
-  min-width: 300px;                /* Wider cards */
-  max-width: 320px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
   border-left: 6px solid #1d3b01;
-  flex: 0 0 auto;                  /* Prevent shrinkage in flex scroll */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  text-align: center;
+  flex: 0 0 auto;
+  transition: 0.3s;
 }
 
 .medicine-item:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
 .medicine-item img {
   width: 100%;
   height: 160px;
-  object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 0.8rem;
-}
-
-.medicine-item h4 {
-  color: #4E342E;
-  font-size: 1.1rem;
-  margin: 0.4rem 0;
-}
-
-.price {
-  font-weight: bold;
-  color: #4E342E;
-  margin: 0.4rem 0;
+  object-fit: cover;
 }
 
 .buy-btn {
-  background-color: #1d3b01;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border: none;
+  background:#1d3b01;
+  padding: 0.6rem 1rem;
+  color:#fff;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-size: 0.95rem;
+  cursor:pointer;
 }
 
-.buy-btn:hover {
-  background-color: #4E342E;
-  transform: scale(1.05);
-}
-
-/* Floating add (+) button remains consistent */
-.plus-button {
-  height: 55px;
-  width: 55px;
-  font-size: 1.8rem;
-  font-weight: bold;
-  border-radius: 50%;
-  border: none;
-  color: white;
-  background-color: #1d3b01;
-  cursor: pointer;
-  align-self: center;
-  transition: 0.3s;
-  flex: 0 0 auto; /* Keeps it aligned horizontally */
-}
-
-.plus-button:hover {
-  background-color: #4E342E;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .medicine-item {
-    min-width: 260px;
-  }
-}
-
-@media (max-width: 480px) {
-  .medicine-item {
-    min-width: 220px;
-  }
-}
-
-/* === Medicine Search Bar === */
-.medicine-search-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1.5rem 0;
-  gap: 0.5rem;
-}
-
-.medicine-search-box input {
-  width: 60%;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #6D4C41;
-  font-size: 1rem;
-  background-color: #fff;
-  transition: box-shadow 0.3s ease;
-}
-
-.medicine-search-box input:focus {
-  box-shadow: 0 0 5px #1d3b01;
-  outline: none;
-}
-
-.medicine-search-box button {
-  background-color: #1d3b01;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.medicine-search-box button:hover {
-  background-color: #4E342E;
-}
-
-/* Highlighted result */
-.medicine-item.highlight {
-  outline: 3px solid #e2c400;
-  box-shadow: 0 0 15px #e2c400;
-  transform: scale(1.08);
-}
-
-
-/* === Buy Form Modal === */
+/* ===========================================
+   MODAL FORM
+=========================================== */
 .overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
 }
-
-/* Place this BELOW the overlay definition */
-.hidden {
-  display: none !important;
-}
-
 
 .buy-form-box {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  background:#fff;
+  padding:2rem;
+  border-radius:10px;
+  width:90%;
+  max-width:400px;
 }
 
-.buy-form-box h3 {
-  margin-bottom: 1.5rem;
-  color: #1d3b01;
-  text-align: center;
-}
-
-#buyForm label {
-  font-weight: bold;
-  color: #4E342E;
-  margin-top: 0.8rem;
-  display: block;
-}
-
-#buyForm input, #buyForm textarea {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 0.4rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.submit-btn {
-  background-color: #1d3b01;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  width: 100%;
-  margin-top: 1rem;
-  cursor: pointer;
-}
-
+.submit-btn,
 .cancel-btn {
-  background-color: #814141;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  width: 100%;
-  margin-top: 0.5rem;
-  cursor: pointer;
+  width:100%;
+  padding:0.8rem;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
 }
 
-.cancel-btn:hover { background-color: #4E342E; }
-.submit-btn:hover { background-color: #4E342E; }
+/* ===========================================
+   FOOTER
+=========================================== */
+footer {
+  background:#344721;
+  color:#fff;
+  text-align:center;
+  padding:3rem;
+}
+
+/* ===========================================
+   ANIMATIONS
+=========================================== */
+@keyframes fadeInDown { from{opacity:0; transform:translateY(-20px);} to{opacity:1;} }
+@keyframes fadeInUp   { from{opacity:0; transform:translateY(20px);}  to{opacity:1;} }
+
+/* ===========================================
+   RESPONSIVE FIX PACK
+=========================================== */
+
+/* Tablets & Small Laptops */
+@media(max-width:1024px){
+  header h1 { font-size: 3.2rem; }
+  header p { font-size: 1.3rem; }
+}
+
+/* Tablets */
+@media(max-width:768px){
+  body { font-size:14px; }
+
+  nav ul {
+    flex-direction: column;
+    background:#1d3b01;
+    position: absolute;
+    top:55px;
+    left:0;
+    width:100%;
+    display:none;
+  }
+  nav ul.show { display:flex; }
+
+  .menu-toggle { display:block; }
+
+  .split_doc { flex-direction:column; text-align:center; }
+
+  .doctor_img img { width:150px; height:150px; }
+
+  .medicine-item { min-width:230px; }
+}
+
+/* Phones */
+@media(max-width:480px){
+  header { height:70vh; }
+  header h1 { font-size:2rem; }
+  header p { font-size:1rem; }
+
+  .medicine-item { min-width:180px; padding:0.8rem; }
+  .medicine-item img { height:120px; }
+
+  .disease-card { flex-direction:column; text-align:center; padding:1rem; }
+  .disease-card img { max-width:80px; }
+
+  .testimonial-box { max-width:90%; padding:1rem; }
+
+  form input, form textarea, form button {
+    font-size:0.85rem;
+    padding:0.7rem;
+  }
+}
