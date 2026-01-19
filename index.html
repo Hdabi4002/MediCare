@@ -3,15 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UnaniCare - Your Health Partner</title>
+  <title>EarthHerbal - Your Health Partner</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("DqBua_w3Wp5pyYMza"); // from EmailJS dashboard
+</script>
+
 <body>
 <header>
-  <h1>UnaniCare</h1>
-  <p>Your Partner in Health and Wellness</p>
+  <div>
+    <h1 class="brand-title">
+      <span class="earth">Earth</span><span class="herbal">Herbal</span>
+    </h1>
+    <p>Your Partner in Health and Wellness</p>
+  </div>
 </header>
+
+
 <nav>
   <span class="menu-toggle">&#9776;</span>
   <ul>
@@ -27,10 +38,10 @@
 </nav>
 
 <section id="about" style="background-color: #819067;">
-  <div class="card" style="background: url('blurbackground.jpg') no-repeat center center/cont;">
-    <h2>About UnaniCare</h2>
+  <div class="card" style="background: url('blurbackground.jpg') no-repeat center center/cover;">
+    <h2>About EarthHerbal</h2>
     <p style="color: #6D4C41;"><b>Unani Medicine- Ancient Wisdom, Timeless Healing</b></p>
-    <p>Rooted in the medical traditions of ancient Greece and enriched by Persian and Arab innovations, Unani Medicine has been nurturing health and well‑being for over 2,000 years. This holistic system views the human body as a delicate balance of elements, seeks to restore harmony through nature's gifts‑</p>
+    <p>Rooted in the medical traditions of ancient Greece and enriched by Persian and Arab innovations, Unani Medicine has been nurturing health and well-being for over 2,000 years. This holistic system views the human body as a delicate balance of elements, seeks to restore harmony through nature's gifts-</p>
     <p>Healing Herbs, Pure Minerals, and Mindful Living.</p>
     <p>More than just treatment, Unani embraces preventive care, guiding you towards a healthier life through balanced diet, lifestyle adjustments, and natural remedies.</p>
     <p>This is a modern medical platform offering top-notch consultation, disease diagnosis, and remote appointments. The goal is to simplify healthcare access for everyone and to treat our patients with pure herbal treatments and therapies.</p>
@@ -38,7 +49,7 @@
   </div>
 </section>
 
-<section class="parallax parallax-1" id="services" style="background-color: #77645c;">
+<section class="parallax parallax-1" id="services" style="background-color: #B1AB86;">
   <div class="card">
     <h2>Consult a Highly Experienced Doctor</h2>
     <div class="split_doc">
@@ -47,9 +58,17 @@
       </div>
       <div class="doctor_about">
         <h4>Dr. Mahboob Alam</h4>
-        <p>MD (University of Kashmir)</p>
-        <p>URTW (CUHRC, Kerala)</p>
-      </div>
+        <b>General Physician</b><br/>
+        <p>MD (University of Kashmir), Medicine (Unani) CCRUM, New Delhi</p>
+        <p>CCH, CSD (IHS, Mumbai), URTW (Kozhikode, Kerala)</p>
+        <br/>
+        <p>ASSISTANT PROFESSOR, DEPT OF UNANI MEDICINE, REHBAR INSTITUTE OF MEDICAL SCIENCE, PUNJAB.</p>
+        <br/>
+        <P>FORMER ASSISTANT PROFESSOR, DEPT OF UNANI MEDICINE, SHUTC (MP MEDICAL SCIENCE UNIVERSITY).</P>
+        <P>LIFE MEMBER: GLOBAL TOUCH INTERNATIONAL, LUCKNOW (UP).</P>
+         <br/>
+          <b>SPECIALITY IN:</b> <i>Liver & Gastro Problems, Male Sexual Disorders, Joints Disorders.</i>
+        </div>
     </div>  
   </div>
 </section>
@@ -57,12 +76,13 @@
 <!-- Buy Medicines Section -->
 <section id="medicines" class="parallax parallax-1" style="background-color: #819067; padding: 2rem 1rem;">
 
-  <h2 style="color: #fffefd; text-align:center;">Buy Unani Medicines</h2>
+  <h2 style="color: #fffefd; text-align:center;">Buy Herbal Medicines</h2>
 
-  <!-- 🔍 Search Bar -->
+  <!-- Search Bar -->
   <div class="medicine-search-box" style="text-align:center; margin: 1rem 0;">
     <input type="text" id="medicineSearch" placeholder="Search for a medicine..." oninput="searchMedicine()">
-    <button onclick="searchMedicine()">Search</button>
+    <button id="searchBtn">Search</button>
+
   </div>
 
   <!-- medicine grid -->
@@ -71,7 +91,7 @@
         <h4>Jawarish Jalinoos</h4>
         <p>Use: General stomach tonic — improves digestion, appetite, and strength.</p>
         <p>Indication: Dyspepsia, loss of appetite, abdominal weakness.</p>
-        <p class="price">₹250</p>
+        <p class="price">₹259 (150 gm Paste)</p>
         <button class="buy-btn" data-medicine="Jawarish Jalinoos">Buy Now</button>
       </div>
 
@@ -80,7 +100,7 @@
         <p>Use: Natural mild laxative.</p>
         <p>Indication: Constipation and sluggish bowel.</p>
         <p>Main ingredients: Halela, Balela, Amla.</p>
-        <p class="price">₹180</p>
+        <p class="price">₹200 (125 gm Paste)</p>
         <button class="buy-btn" data-medicine="Itrifal Mulayyin">Buy Now</button>
       </div>
 
@@ -89,14 +109,14 @@
         <p>Use: Liver tonic that supports digestion.</p>
         <p>Indication: Jaundice, hepatic dysfunction, poor digestion due to liver weakness.</p>
         <p>Main ingredients: Gul-e-Surkh, Sandal, Revand Chini.</p>
-        <p class="price">₹200</p>
+        <p class="price">₹164 (200 gm Paste)</p>
         <button class="buy-btn" data-medicine="Majoon Dabeedul Ward">Buy Now</button>
       </div>
       <div class="medicine-item">
         <h4>Sharbat Unnab</h4>
         <p>Use: Soothes throat and relieves cough.</p>
         <p>Indication: Cough, sore throat, mild chest irritation.</p>
-        <p class="price">₹220</p>
+        <p class="price">₹449 (200 ml Liquid)</p>
         <button class="buy-btn" data-medicine="Sharbat Unnab">Buy Now</button>
       </div>
       <div class="medicine-item">
@@ -104,7 +124,7 @@
         <p>Use: Acts as a demulcent and anti-inflammatory.</p>
         <p>Indication: Tonsillitis, pharyngitis, throat pain, hoarseness.</p>
         <p>Main ingredients: Toot Siah (Black mulberry), Gulab, Sugar.</p>
-        <p class="price">₹220</p>
+        <p class="price">₹185 (500 ml Juice)</p>
         <button class="buy-btn" data-medicine="Sharbat Toot Siah">Buy Now</button>
       </div>
       <div class="medicine-item">
@@ -112,7 +132,7 @@
         <p>Use: Cooling and soothing in respiratory inflammation.</p>
         <p>Indication: Dry cough, burning chest, fever with cough.</p>
         <p>Main ingredient: Khaksi (Sisymbrium irio).</p>
-        <p class="price">₹220</p>
+        <p class="price">₹175 (200 ml Liquid)</p>
         <button class="buy-btn" data-medicine="Sharbat Khaksi">Buy Now</button>
       </div>
       <div class="medicine-item">
@@ -120,38 +140,30 @@
         <p>Use: Soothes throat and chest; relieves cough and irritation.</p>
         <p>Indication: Chronic cough, bronchitis, sore throat, and mild asthma.</p>
         <p>Main ingredients: Sapistan (Cordia myxa), Unnab, Khubazi, Behidana, Banafsha, Asl-us-Soos (Licorice), and Gul-e-Khatmi.</p>
-        <p class="price">₹220</p>
+        <p class="price">₹141 (125 gm Paste)</p>
         <button class="buy-btn" data-medicine="Lauq Sapistan">Buy Now</button>
       </div>
       <div class="medicine-item">
-        <h4>Khamira Gaozaban Ambari Jawahar Wala</h4>
+        <h4>Khamira Gaozaban Ambari</h4>
         <p>Use: Nerve and heart tonic; relieves stress and palpitation.</p>
         <p>Indication: Nervous debility, anxiety, depression, restlessness.</p>
-        <p class="price">₹220</p>
-        <button class="buy-btn" data-medicine="Khamira Gaozaban Ambari Jawahar Wala">Buy Now</button>
+        <p class="price">₹70 (60 gm Paste)</p>
+        <button class="buy-btn" data-medicine="Khamira Gaozaban Ambari">Buy Now</button>
       </div>
       <div class="medicine-item">
-        <h4>Roghan Badam Shirin</h4>
+        <h4>Roghan Badam Shirin(Pure Almond Oil)</h4>
         <p>Use: Brain tonic and mild laxative.</p>
         <p>Indication: Mental fatigue, memory weakness, constipation.</p>
         <p>Main ingredient: Sweet Almond oil.</p>
-        <p class="price">₹220</p>
+        <p class="price">₹113 (25 ml Oil)</p>
         <button class="buy-btn" data-medicine="Roghan Badam Shirin">Buy Now</button>
-      </div>
-      <div class="medicine-item">
-        <h4>Lauq Sapistan</h4>
-        <p>Use: Soothes throat and chest; relieves cough and irritation.</p>
-        <p>Indication: Chronic cough, bronchitis, sore throat, and mild asthma.</p>
-        <p>Main ingredients: Sapistan (Cordia myxa), Unnab, Khubazi, Behidana, Banafsha, Asl-us-Soos (Licorice), and Gul-e-Khatmi.</p>
-        <p class="price">₹220</p>
-        <button class="buy-btn" data-medicine="Lauq Sapistan">Buy Now</button>
       </div>
     <div class="medicine-item">
   <h4>Khamira Abresham Hakim Arshad Wala</h4>
   <p>Use: Cardio-nervine tonic.</p>
   <p>Indication: Nervous palpitation, anxiety, fainting.</p>
   <p>Main ingredients: Abresham, Arq-e-Gulab, Amber.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹167 (30 gm Paste)</p>
   <button class="buy-btn" data-medicine="Khamira Abresham Hakim Arshad Wala">Buy Now</button>
 </div>
 <div class="medicine-item">
@@ -159,14 +171,14 @@
   <p>Use: Strengthens nerves and brain; acts as general tonic.</p>
   <p>Indication: Nervous weakness, fatigue, poor memory, anxiety.</p>
   <p>Main ingredients: Asgandh, Zafran, Mastagi, Balchhar.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹90 (150 gm Paste)</p>
   <button class="buy-btn" data-medicine="Majoon Falasfa">Buy Now</button>
 </div>
 <div class="medicine-item">
   <h4>Majoon Arad Khurma</h4>
   <p>Use: Increases sexual power and stamina.</p>
   <p>Indication: Sexual weakness, premature ejaculation, low sperm count.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹75 (150 gm Paste)</p>
   <button class="buy-btn" data-medicine="Majoon Arad Khurma">Buy Now</button>
 </div>
 
@@ -174,23 +186,23 @@
   <h4>Majoon Mughalliz Jawahar Wali</h4>
   <p>Use: Thickens semen and strengthens reproductive organs.</p>
   <p>Indication: Thin semen, low sperm motility, weakness after intercourse.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹145 (125 gm Paste)</p>
   <button class="buy-btn" data-medicine="Majoon Mughalliz Jawahar Wali">Buy Now</button>
 </div>
 <div class="medicine-item">
   <h4>Sharbat Bazuri Motadil</h4>
-  <p>Use: Cooling and diuretic syrup.</p>
+  <p>Use: Cooling and diuretic syrup for liver care.</p>
   <p>Indication: Burning urination, stone formation, cystitis.</p>
   <p>Main ingredients: Kasni, Sandal Safaid, Gulab.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹194 (500 ml Liquid)</p>
   <button class="buy-btn" data-medicine="Sharbat Bazuri Motadil">Buy Now</button>
 </div>
 <div class="medicine-item">
-  <h4>Habb-e-Suranjan</h4>
+  <h4>Habb-e-Suranjan Pills(100 Each)</h4>
   <p>Use: Potent for acute and chronic joint pain.</p>
   <p>Indication: Arthritis, gout, neuralgia.</p>
   <p>Main ingredients: Suranjan Shirin, Zanjabeel, Filfil Siyah.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹195 (3 Bottles)</p>
   <button class="buy-btn" data-medicine="Habb-e-Suranjan">Buy Now</button>
 </div>
 <div class="medicine-item">
@@ -198,7 +210,7 @@
   <p>Use: For chronic and degenerative joint diseases.</p>
   <p>Indication: Osteoarthritis, gout, rheumatoid arthritis.</p>
   <p>Main ingredients: Suranjan, Asgandh, Zanjabeel, Filfil Siyah.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹160 (20 tablets)</p>
   <button class="buy-btn" data-medicine="Qurs-e-Mafasil">Buy Now</button>
 </div>
 <div class="medicine-item">
@@ -206,7 +218,7 @@
   <p>Use: Strengthens uterus and stops excessive discharge.</p>
   <p>Indication: Leucorrhoea (Sayalan-e-Rahim), weakness after delivery.</p>
   <p>Main ingredients: Supari, Amla, Gulab, Mulethi.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹128 (200 gm Paste)</p>
   <button class="buy-btn" data-medicine="Majoon Supari Pak">Buy Now</button>
 </div>
 <div class="medicine-item">
@@ -214,7 +226,7 @@
   <p>Use: Nourishing tonic for female reproductive health.</p>
   <p>Indication: Infertility, uterine weakness, menstrual irregularities.</p>
   <p>Main ingredients: Ambari, Sandal, Musli, Asgandh.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹164 (60 gm Paste)</p>
   <button class="buy-btn" data-medicine="Majoon Hamal Ambari Alvi Khan">Buy Now</button>
 </div>
 <div class="medicine-item">
@@ -222,7 +234,7 @@
   <p>Use: Cooling, hepatoprotective, and detoxifying.</p>
   <p>Indication: Acute or chronic hepatitis, burning sensation, liver inflammation.</p>
   <p>Main ingredient: Kasni (Cichorium intybus).</p>
-  <p class="price">₹—</p>
+  <p class="price">₹104 (500 ml Liquid)</p>
   <button class="buy-btn" data-medicine="Arq-e-Kasni">Buy Now</button>
 </div>
 <div class="medicine-item">
@@ -230,7 +242,7 @@
   <p>Use: Liver cooling syrup; improves bile flow.</p>
   <p>Indication: Jaundice, liver heat, indigestion due to hepatic dysfunction.</p>
   <p>Main ingredients: Kasni, Mako, Gulab, Badranjboya.</p>
-  <p class="price">₹—</p>
+  <p class="price">₹230 (500 ml Liquid)</p>
   <button class="buy-btn" data-medicine="Sharbat Deenar">Buy Now</button>
 </div>
 <div class="medicine-item">
@@ -238,33 +250,28 @@
   <p>Use: Anti-inflammatory and hepatoprotective.</p>
   <p>Indication: Hepatitis, hepatic enlargement, bile congestion.</p>
   <p>Main ingredient: Mako (Solanum nigrum).</p>
-  <p class="price">₹—</p>
+  <p class="price">₹100 (500 ml Liquid)</p>
   <button class="buy-btn" data-medicine="Arq-e-Mako">Buy Now</button>
 </div>
-
-      <!-- Owner-only add button -->
-      <button class="plus-button" style="background-color:#1d3b01;" onclick="addContent('medicine')">+</button>
-    </div>
   </div>
 </section>
 
-
-<!-- Buy Form Modal -->
+<!-- ================= BUY FORM MODAL ================= -->
 <div id="buy-form-overlay" class="overlay hidden">
   <div class="buy-form-box">
     <h3>Buy Medicine</h3>
     <form id="buyForm">
       <label for="medicineName">Medicine:</label>
-      <input type="text" id="medicineName" name="medicineName" readonly>
+      <input type="text" id="medicineName" readonly>
 
       <label for="buyerName">Your Name:</label>
-      <input type="text" id="buyerName" name="buyerName" required>
+      <input type="text" id="buyerName" required>
 
       <label for="buyerContact">Contact Info:</label>
-      <input type="text" id="buyerContact" name="buyerContact" required placeholder="Phone or Email">
+      <input type="text" id="buyerContact" required>
 
       <label for="buyerMessage">Message:</label>
-      <textarea id="buyerMessage" name="buyerMessage" rows="3" placeholder="Any additional details..."></textarea>
+      <textarea id="buyerMessage"></textarea>
 
       <button type="submit" class="submit-btn">Send Order</button>
       <button type="button" class="cancel-btn" onclick="closeBuyForm()">Cancel</button>
@@ -277,7 +284,7 @@
 <section id="videos" style="background: url('blurbackground.jpg') no-repeat center center/cover;">
   <h2 style="text-align:center;">Educational Videos</h2>
   <p style="text-align:center;">Watch educational videos on Unani medicine and therapies.</p>
-  <p style="text-align:center;">Youtube Channel: <strong>@healthmatters-I</strong></p>
+  <p style="text-align:center;">Youtube Channel: <strong>@drmahboobalamm</strong></p>
 
   <div class="video-grid" id="videos-list">
     <iframe src="https://www.youtube.com/embed/0vA1TyqcYnY" title="YouTube video 1" allowfullscreen></iframe>
@@ -285,11 +292,9 @@
     <iframe src="https://www.youtube.com/embed/KlAV2VgyPBY" title="YouTube video 3" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/gDZ-2_gfi6w" title="YouTube video 4" allowfullscreen></iframe>
     <iframe src="https://www.youtube.com/embed/K6uTHEXw84E" title="YouTube video 5" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/mR-UgTZ_sBk" title="YouTube video 6" allowfullscreen></iframe>
   </div>
 
-  <div style="text-align:center; margin-top: 1rem;">
-    <button style="background-color: #B1AB86;" class="plus-button" onclick="addContent('video')">+</button>
-  </div>
 </section>
 
 
@@ -335,42 +340,53 @@
 <section class="testimonial" id="testimonial" style="background-color: #819067;">
   <h2>What Our Patients Say</h2>
   <div class="testimonial-boxes">
-    <div class="testimonial-box" style="background: url('blurbackground.jpg') no-repeat center center/cover;">
-      <p>"UnaniCare saved my time and helped me connect with a doctor instantly."</p>
-      <h4>- Ananya Verma</h4>
-    </div>
-    <div class="testimonial-box" style="background: url('blurbackground.jpg') no-repeat center center/cover;">
-      <p>"Their consultation process is smooth."</p>
-      <h4>- Rajiv Kumar</h4>
-    </div>
-    <div class="testimonial-box" style="background: url('blurbackground.jpg') no-repeat center center/cover;">
-      <p>"The doctors are very professional. Highly recommended!"</p>
-      <h4>- Fatima Shaikh</h4>
-    </div>
+    
   </div>
+  <div style="text-align:center; margin-top:1rem;">
   <button style="background-color: #B1AB86;" class="plus-button" onclick="addContent('testimonial')">+</button>
+  </div>
 </section>
-
-<!-- Single password prompt overlay -->
-<div id="password-prompt" class="hidden">
-  <label for="password">Enter password:</label>
-  <input type="password" id="password" />
-  <button onclick="verifyPassword()">Submit</button>
-</div>
 
 <section id="contact" style="background-color: #B1AB86;">
   <div class="card">
     <h2>Contact Us</h2>
-    <p>Email: contact@unanicare.com</p>
+    <p>Email: earthherbal96@gmail.com </p>
     <p>Location: Dukhniwaran Rehab Centre, near Century Enclave, Nabha Road, Patiala, Punjab, India</p>
     <p>Phone: +91 8899602240 and +91 9779502908</p>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 MediCare. All rights reserved.</p>
+  <p>&copy; 2025 EarthHerbal. All rights reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
+
+
+
+<!-- ================= ADMIN ADD CONTENT MODAL ================= -->
+<div id="admin-form-overlay" class="overlay hidden">
+  <div class="buy-form-box">
+    <h3 id="adminFormTitle">Add Content</h3>
+
+    <!-- Medicine Form -->
+    <div id="medicineForm" class="admin-form hidden">
+      <input id="mName" placeholder="Medicine Name">
+      <textarea id="mDesc" placeholder="Description"></textarea>
+      <input id="mPrice" placeholder="Price (₹)">
+      <button onclick="saveMedicine()">Add Medicine</button>
+    </div>
+
+    <!-- Testimonial Form -->
+    <div id="testimonialForm" class="admin-form hidden">
+      <textarea id="tText" placeholder="Testimonial text"></textarea>
+      <input id="tName" placeholder="Person name">
+      <button onclick="saveTestimonial()">Add Testimonial</button>
+    </div>
+
+    <button class="cancel-btn" onclick="closeAdminForm()">Cancel</button>
+  </div>
+</div>
+
 </body>
 </html>
