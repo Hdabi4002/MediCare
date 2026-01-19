@@ -15,20 +15,21 @@ body {
   background-color:#F5F5DC;
 }
 
-.hidden { display: none; }
-    .plus-button {
-      padding: 10px;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      margin: 10px 0;
-    }
-    .content-section {
-      margin-top: 20px;
-      border: 1px solid #ccc;
-      padding: 20px;
-    }
+.plus-button {
+  padding: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.content-section {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
 
 nav {
   background-color:  #1d3b01;
@@ -65,40 +66,123 @@ nav ul li a:hover {
   color: #e2c400;
 }
 
+/* ===============================
+   EARTHHERBAL HEADER
+================================ */
+
 header {
-  background: url('bgleafy.jpg') no-repeat center center/cover;
   height: 100vh;
-  color: #1d3b01;
-  text-align: center;
+  background: url("bgleafy.jpg") no-repeat center center / cover;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
   position: relative;
+  text-align: center;
 }
 
-header::after {
+header::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
+  inset: 0;
+  background: rgba(29, 59, 1, 0.18); /* soft green */
 }
 
-header h1 {
+
+header * {
+  position: relative;
   z-index: 1;
-  font-size: 4.5rem;
-  animation: fadeInDown 1.5s ease;
-  font-family: 'Roboto', sans-serif;
 }
 
+/* Brand title */
+.brand-title {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Shared animation base */
+.brand-title span {
+  display: inline-block;
+  opacity: 0;
+  color: #193301;
+  animation-duration: 1.6s;
+  animation-fill-mode: forwards;
+}
+
+/* Earth from left */
+.brand-title .earth {
+  transform: translateX(-260px);
+  animation-name: slideLeft;
+}
+
+/* Herbal from right */
+.brand-title .herbal {
+  transform: translateX(260px);
+  animation-name: slideRight;
+}
+
+
+/* Tagline */
 header p {
-  z-index: 1;
-  font-size: 1.6rem;
   margin-top: 1rem;
-  animation: fadeInUp 1.5s ease;
-  font-style: italic;
+  font-size: 1.6rem;
+  color: #42691d;
+  opacity: 0;
+  animation: fadeUp 1.2s ease 1.7s forwards;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes slideLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .brand-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-title {
+    font-size: 3.2rem;
+  }
+  header p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 2.6rem;
+  }
 }
 
 section {
@@ -302,9 +386,9 @@ form button:hover {
 }
 
 .doctor_about p {
-  font-size: 1.1rem;
-  color: #814141;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #7e3d3d;
+  line-height: 1.4;
 }
 
 .therapy-img {
@@ -401,11 +485,11 @@ footer {
 
 @media (max-width: 1024px) {
   header h1 {
-    font-size: 3.5rem;
+    font-size: 3.9rem;
   }
 
   header p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   .card {
@@ -456,11 +540,11 @@ footer {
   }
 
   header h1 {
-    font-size: 2.8rem;
+    font-size: 3.3rem;
   }
 
   header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .testimonial-boxes {
@@ -488,11 +572,11 @@ footer {
 
 @media (max-width: 480px) {
   header h1 {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
 
   header p {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   nav ul li a {
@@ -722,13 +806,14 @@ footer {
 /* === Buy Form Modal === */
 .overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: rgba(0,0,0,0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 10000; /* 🔥 higher than navbar */
 }
+
 
 /* Place this BELOW the overlay definition */
 .hidden {
@@ -790,3 +875,18 @@ footer {
 
 .cancel-btn:hover { background-color: #4E342E; }
 .submit-btn:hover { background-color: #4E342E; }
+
+.delete-btn {
+  background: #8b0000;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  margin-top: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.delete-btn:hover {
+  background: #b30000;
+}
+
