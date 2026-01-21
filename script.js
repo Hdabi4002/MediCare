@@ -22,6 +22,90 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+//publish
+const OWNER_PASSWORD = "admin123"; // change this
+
+window.openOwnerLogin = function () {
+  document
+    .getElementById("owner-login-overlay")
+    .classList.remove("hidden");
+};
+
+
+window.closeOwnerLogin = function () {
+  document.getElementById("owner-login-overlay").classList.add("hidden");
+};
+
+window.verifyOwner = function () {
+  const pass = document.getElementById("ownerPassword").value;
+
+  if (pass === OWNER_PASSWORD) {
+    closeOwnerLogin();
+    document.getElementById("publish-overlay").classList.remove("hidden");
+  } else {
+    alert("Incorrect password");
+  }
+};
+
+window.closePublish = function () {
+  document.getElementById("publish-overlay").classList.add("hidden");
+};
+
+//save article to firebase
+async function saveArticle() {
+  const title = document.getElementById("articleTitle").value.trim();
+  const content = document.getElementById("articleContent").value.trim();
+
+  if (!title || !content) {
+    return alert("Title and content required");
+  }
+
+  try {
+    await addDoc(collection(db, "articles"), {
+      title,
+      content,
+      createdAt: Date.now()
+    });
+
+    alert("Article published!");
+    closePublish();
+    loadArticles();
+
+    document.getElementById("articleTitle").value = "";
+    document.getElementById("articleContent").value = "";
+
+  } catch (err) {
+    console.error(err);
+    alert("Failed to publish");
+  }
+}
+
+//load articles from firebase
+async function loadArticles() {
+  const container = document.getElementById("articlesContainer");
+  container.innerHTML = "";
+
+  try {
+    const snap = await getDocs(collection(db, "articles"));
+    snap.forEach(doc => {
+      const a = doc.data();
+
+      const div = document.createElement("div");
+      div.className = "article-box";
+
+      div.innerHTML = `
+        <h3>${a.title}</h3>
+        <p>${a.content}</p>
+        <hr>
+      `;
+
+      container.appendChild(div);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 /* ===============================
    GLOBAL NAV + BASIC SETUP
 ================================ */
@@ -29,6 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.menu-toggle');
   const navList = document.querySelector('nav ul');
   const navLinks = document.querySelectorAll('nav ul li a');
+  document.getElementById("publishBtn")
+  ?.addEventListener("click", saveArticle);
+
 
   toggle.addEventListener('click', () => navList.classList.toggle('show'));
   navLinks.forEach(link =>
@@ -39,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ONLY FIREBASE CONTENT
   loadTestimonials();
+  loadArticles();
 });
 
 /* ===============================
@@ -207,4 +295,10 @@ window.addContent = addContent;
 window.saveTestimonial = saveTestimonial;
 window.closeAdminForm = closeAdminForm;
 window.closeBuyForm = closeBuyForm;
+
+window.openOwnerLogin = openOwnerLogin;
+window.verifyOwner = verifyOwner;
+window.saveArticle = saveArticle;
+window.closeOwnerLogin = closeOwnerLogin;
+window.closePublish = closePublish;
 
