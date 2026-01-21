@@ -34,6 +34,10 @@
     <li><a href="#disease">Diseases</a></li>
     <li><a href="#testimonial">Testimonial</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li>
+  <a href="#" onclick="openOwnerLogin()">Publish</a>
+</li>
+
   </ul>
 </nav>
 
@@ -62,12 +66,12 @@
         <p>MD (University of Kashmir), Medicine (Unani) CCRUM, New Delhi</p>
         <p>CCH, CSD (IHS, Mumbai), URTW (Kozhikode, Kerala)</p>
         <br/>
-        <p>ASSISTANT PROFESSOR, DEPT OF UNANI MEDICINE, REHBAR INSTITUTE OF MEDICAL SCIENCE, PUNJAB.</p>
+        <p>Assistant Professor, Dept of Unani Medicine, Rehbar Institute of Medical Science, Punjab.</p>
         <br/>
-        <P>FORMER ASSISTANT PROFESSOR, DEPT OF UNANI MEDICINE, SHUTC (MP MEDICAL SCIENCE UNIVERSITY).</P>
-        <P>LIFE MEMBER: GLOBAL TOUCH INTERNATIONAL, LUCKNOW (UP).</P>
+        <P>Former Assistant Professor, Dept of Unani Medicine, SHUTC (MP Medical Science University).</P>
+        <P>Life Member: Global Touch International, Lucknow (UP).</P>
          <br/>
-          <b>SPECIALITY IN:</b> <i>Liver & Gastro Problems, Male Sexual Disorders, Joints Disorders.</i>
+          <b>Speciality in:</b> <i>Liver & Gastro Problems, Male Sexual Disorders, Joints Disorders.</i>
         </div>
     </div>  
   </div>
@@ -322,7 +326,7 @@
         <div style="padding: 1rem;"><h4 style="color: #4E342E;">Sciatica</h4><p style="color: #333;"><i>Symptoms: </i>Radiating pain, numbness, worsens with movement.</p></div>
       </div>
       <div style="background:#fff; border-radius: 12px; box-shadow: 0 0 0 4px #6D4C41; overflow: hidden; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="AdobeStock_244803452.jpeg" alt="Migraine" style="width: 100%; height: 30%; object-fit:fill;">
+        <img src="migraine_img.jpeg" alt="Migraine" style="width: 100%; height: 30%; object-fit:fill;">
         <div style="padding: 1rem;"><h4 style="color: #4E342E;">Migraine</h4><p style="color: #333;"><i>Symptoms: </i>Throbbing headache, nausea, sensitivity to light/sound.</p></div>
       </div>
       <div style="background:#fff; border-radius: 12px; box-shadow: 0 0 0 4px #6D4C41; overflow: hidden; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
@@ -345,6 +349,11 @@
   <div style="text-align:center; margin-top:1rem;">
   <button style="background-color: #B1AB86;" class="plus-button" onclick="addContent('testimonial')">+</button>
   </div>
+</section>
+
+<section id="medical-articles">
+  <h2>Medical Articles</h2>
+  <div id="articlesContainer"></div>
 </section>
 
 <section id="contact" style="background-color: #B1AB86;">
@@ -384,7 +393,26 @@
       <button onclick="saveTestimonial()">Add Testimonial</button>
     </div>
 
+
     <button class="cancel-btn" onclick="closeAdminForm()">Cancel</button>
+  </div>
+</div>
+<div id="owner-login-overlay" class="hidden">
+  <div class="admin-form">
+    <h3>Owner Access</h3>
+    <input type="password" id="ownerPassword" placeholder="Enter password">
+    <button onclick="verifyOwner()">Login</button>
+    <button onclick="closeOwnerLogin()">Cancel</button>
+  </div>
+</div>
+
+<div id="publish-overlay" class="hidden">
+  <div class="admin-form">
+    <h3>Publish Medical Content</h3>
+    <input type="text" id="articleTitle" placeholder="Title">
+    <textarea id="articleContent" placeholder="Write content here..."></textarea>
+    <button id="publishBtn">Publish</button>
+    <button onclick="closePublish()">Cancel</button>
   </div>
 </div>
 
