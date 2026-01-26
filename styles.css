@@ -218,7 +218,7 @@ section {
   transition: transform 0.3s ease;
   align-items: flex-start;
   gap: 20px;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -233,7 +233,7 @@ section {
 }
 
 .disease-card img {
-  max-width: 200px;
+  max-width: 180px;
   height: auto;
   border-radius: 10px;
   flex-shrink: 0;
@@ -380,22 +380,6 @@ form button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.video-grid iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-
 /* Responsive Design for Small Screens */
 @media (max-width: 1024px) {
   .split_doc {
@@ -483,7 +467,7 @@ footer {
   }
 
   .disease-card img {
-    max-width: 120px;
+    max-width: 100px;
   }
 
   .disease-card-content {
@@ -538,7 +522,7 @@ footer {
   }
 
  .disease-card img {
-    max-width: 100px;
+    max-width: 80px;
   }
 
   section {
@@ -612,15 +596,15 @@ footer {
 @media (max-width: 480px) {
 
   .disease-card img {
-    max-width: 80px;
-    height: auto;
-    margin: 0 auto 10px auto;
+    max-width: 50px;
+    height:fit-content;
+    margin: 2 auto 10px auto;
     display: block;
   }
 
   .disease-card {
     padding: 0.5rem;
-    gap: 10px;
+    gap: 9px;
   }
 }
 
@@ -1159,24 +1143,12 @@ footer {
     font-size: 0.95rem !important;
   }
 
-  /* === Videos Section === */
-  .video-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 per row */
-    gap: 0.5rem !important;
-  }
-
-  .video-grid iframe {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    border-radius: 6px !important;
-  }
 }
 
 /* Optional: extra small tweaks for very small screens (<400px) */
 @media (max-width: 400px) {
   .disease-card img {
-    max-width: 60px !important;
+    max-width: 50px !important;
   }
 
   .disease-card-content h4,
